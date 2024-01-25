@@ -1,0 +1,8 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+<form method="get" action="dated">
+    <input type="date" name="date_filter" />
+    <button type="submit">Filter by Date</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="post" action="CreateExpense" class="form-control">
+    {% csrf_token %}
+    <div class="container">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-12">
+                <h3>Edit Expense</h3>
+            </div>
+            <div class="mb-3">
+                <label>Name </label>
+                <input type="text" class="form-control" name="name" id="id_name" >            </div>
+            <div class="mb-3">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" id="id_description" >
+            </div>
+            <div class="mb-3">
+                    <label>Category : Books | Electronics | Education | Health | Travel | Others</label>
+                <input type="text" class="form-control" name="category" id="id_category" >
+
+                
+            </div>
+            <div class="mb-3">
+                <label>Date of Expense</label>
+                <input type="date" class="form-control" name="date" id="id_date" >            </div>
+            <div class="mb-3">
+                <label>Expense Amount</label>
+                <input type="number" class="form-control" name="amount" id="id_amount" >
+            </div>
+        <button type="submit" cl>Create Expense</button>
+    </div>
+    
+</form>
+
+
+
+
+
+<!--
+<form method="POST" action="CreateExpense">
+    {% csrf_token}
+    <label>Name</label>
+    <input type="text" name="name">
+    <label>Description</label>
+    <input type="text" name="Description">
+
+    <label>Category</label>
+    <input type="radio" name="category" value="Health" >
+    <input type="radio" name="category" value="Electronics">
+    <input type="radio" name="category" value="Travel">
+    <input type="radio" name="category" value="Education">
+    <input type="radio" name="category" value="Books">
+    <input type="radio" name="category" value="Others">
+    <label>Date of Expense</label>
+    <input type="datetime-local" name="date">
+    <label>Expense Amount</label>
+    <input type="number" name="amount">-->
+
+
+</form>
+
+    
+{% endblock content %}

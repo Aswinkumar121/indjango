@@ -1,0 +1,87 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+<!--
+
+
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="editExpense">
+    {% csrf_token %}
+    <div class="container">
+        <div class="col-12">
+            <h3>Edit Expense</h3>
+        </div>
+        <div class="mb-3">
+            <label>Name </label>
+            <input type="text" class="form-control" name="name" id="id_name" value="{{Expense.name}}">
+
+        </div>
+        <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" name="description" id="id_description" value="{{expense.description}}">
+
+        </div>
+        <div class="mb-3">
+
+            <label>Category</label>
+            <input type="radio" class="form-control" name="name" id="id_category" value= "Expense.category">
+
+        </div>
+        <div class="mb-3">
+
+        <label>Date of Expense</label>
+        <input type="datetime-local" class="form-control" name="name" id="id_date" value="{{Expense.date}}">
+
+        </div>
+        <div class="mb-3">
+            <label>Expense Amount</label>
+            <input type="number" class="form-control" name="name" id="id_id" value="{{expense.amount}}">
+
+        </div>
+        <div class="mb-3">
+            <button type="submit">Save Changes</button>
+        </div>
+    
+    </div>
+    
+    
+    </form>
+</div>
+-->
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="{% url 'update' id=expense.id %}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-12">
+                <h3>Edit Expense</h3>
+            </div>
+            <div class="mb-3">
+                <label>Name </label>
+                <input type="text" class="form-control" name="name" id="id_name" value="{{ expense.name }}">
+            </div>
+            <div class="mb-3">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" id="id_description" value="{{ expense.description }}">
+            </div>
+            <div class="mb-3">
+                <label>Category : Books | Electronics | Education | Health | Travel | Others</label>
+                <input type="text" class="form-control" name="category" id="id_category" value="{{ expense.category }}">
+            </div>
+            <div class="mb-3">
+                <label>Date of Expense</label>
+                <input type="date" class="form-control" name="date" id="id_date" value="{{ expense.date }}">
+            </div>
+            <div class="mb-3">
+                <label>Expense Amount</label>
+                <input type="number" class="form-control" name="amount" id="id_amount" value="{{ expense.amount }}">
+            </div>
+            
+            <div class="mb-3">
+                <button class ="btn-outline-success" type="submit">Save Changes</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+    
+{% endblock content %}
